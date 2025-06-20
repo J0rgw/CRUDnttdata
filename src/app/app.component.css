@@ -23,6 +23,7 @@
   box-shadow: 0 0 40px 10px #ff3b3b55;
   position: relative;
 }
+
 .splat2 {
   background: radial-gradient(circle at 60% 40%, #3bff3b 60%, #00b300 100%);
 }

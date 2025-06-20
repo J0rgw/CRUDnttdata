@@ -1,0 +1,53 @@
+.client-form {
+  max-width: 420px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background: #ffffff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #3f51b5;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1.8rem;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #f5f7ff;
+  border-radius: 8px;
+}
+
+.mat-form-field.mat-focused .mat-form-field-flex {
+  background-color: #e1e8ff;
+}
+
+.mat-icon {
+  color: #3f51b5;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1.2rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(63,81,181,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #303f9f;
+  box-shadow: 0 6px 18px rgba(48,63,159,0.5);
+}
+
