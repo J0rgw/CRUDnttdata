@@ -12,20 +12,26 @@
 
   <mat-form-field appearance="fill" class="full-width">
     <mat-label>Correo electrónico</mat-label>
-    <input matInput formControlName="email" required autocomplete="email" />
+    <input matInput formControlName="contactEmail" required autocomplete="email" />
     <mat-icon matSuffix>email</mat-icon>
-    <mat-error *ngIf="clientForm.get('email')?.hasError('required')">
+    <mat-error *ngIf="clientForm.get('contactEmail')?.hasError('required')">
       El email es obligatorio.
     </mat-error>
-    <mat-error *ngIf="clientForm.get('email')?.hasError('email')">
+    <mat-error *ngIf="clientForm.get('contactEmail')?.hasError('email')">
       Ingresa un correo válido.
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="full-width">
-    <mat-label>Teléfono</mat-label>
-    <input matInput formControlName="phone" autocomplete="tel" />
-    <mat-icon matSuffix>phone</mat-icon>
+    <mat-label>Ingresos</mat-label>
+    <input matInput type="number" formControlName="revenue" required min="1" />
+    <mat-icon matSuffix>attach_money</mat-icon>
+    <mat-error *ngIf="clientForm.get('revenue')?.hasError('required')">
+      El ingreso es obligatorio.
+    </mat-error>
+    <mat-error *ngIf="clientForm.get('revenue')?.hasError('min')">
+      El ingreso debe ser mayor a 0.
+    </mat-error>
   </mat-form-field>
 
   <button mat-raised-button color="primary" class="submit-btn" type="submit" [disabled]="clientForm.invalid">

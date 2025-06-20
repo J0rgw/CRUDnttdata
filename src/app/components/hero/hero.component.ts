@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, Renderer2, ElementRef, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 
 @Component({
@@ -9,7 +10,7 @@ import { gsap } from 'gsap';
 export class HeroComponent implements AfterViewInit {
   private shrinkHeader = 300;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) {}
 
   ngAfterViewInit(): void {
     // No animation needed here, handled by scroll
@@ -38,5 +39,13 @@ export class HeroComponent implements AfterViewInit {
       this.renderer.removeClass(splatter3, 'shrink');
       this.renderer.removeClass(content, 'shrink');
     }
+  }
+
+  onLoginClick() {
+    this.router.navigate(['/form']);
+  }
+
+  onVerTablaClick() {
+    this.router.navigate(['/tablas']);
   }
 } 

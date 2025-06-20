@@ -1,0 +1,43 @@
+<div class="table-controls">
+  <mat-form-field appearance="fill">
+    <mat-label>Buscar</mat-label>
+    <input matInput [(ngModel)]="search" (ngModelChange)="applyFilter()" placeholder="Nombre o Email" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Ordenar por</mat-label>
+    <mat-select [(ngModel)]="orderBy" (selectionChange)="applyFilter()">
+      <mat-option value="name">Nombre</mat-option>
+      <mat-option value="contactEmail">Email</mat-option>
+      <mat-option value="revenue">Ingresos</mat-option>
+      <mat-option value="startDate">Fecha de inicio</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Dirección</mat-label>
+    <mat-select [(ngModel)]="orderDirection" (selectionChange)="applyFilter()">
+      <mat-option value="asc">Ascendente</mat-option>
+      <mat-option value="desc">Descendente</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="filteredClientes" class="mat-elevation-z8 full-width-table">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let c">{{c.name}}</td>
+  </ng-container>
+  <ng-container matColumnDef="contactEmail">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let c">{{c.contactEmail}}</td>
+  </ng-container>
+  <ng-container matColumnDef="revenue">
+    <th mat-header-cell *matHeaderCellDef>Ingresos</th>
+    <td mat-cell *matCellDef="let c">{{c.revenue | number:'1.2-2'}}</td>
+  </ng-container>
+  <ng-container matColumnDef="startDate">
+    <th mat-header-cell *matHeaderCellDef>Fecha de inicio</th>
+    <td mat-cell *matCellDef="let c">{{c.startDate | date:'medium'}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['name','contactEmail','revenue','startDate']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name','contactEmail','revenue','startDate'];"></tr>
+</table>
