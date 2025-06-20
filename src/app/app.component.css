@@ -1,0 +1,55 @@
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #222;
+  position: relative;
+  overflow: hidden;
+}
+.splats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.splat {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 60% 40%, #ff3b3b 60%, #b30000 100%);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.2) rotate(-30deg);
+  box-shadow: 0 0 40px 10px #ff3b3b55;
+  position: relative;
+}
+.splat2 {
+  background: radial-gradient(circle at 60% 40%, #3bff3b 60%, #00b300 100%);
+}
+.splat3 {
+  background: radial-gradient(circle at 60% 40%, #3b3bff 60%, #0000b3 100%);
+}
+.company-title {
+  color: #fff;
+  font-size: 3rem;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  text-align: center;
+  opacity: 0;
+}
+.login-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  background: #ff3b3b;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: background 0.2s;
+}
+.login-btn:hover {
+  background: #b30000;
+}
