@@ -1,0 +1,35 @@
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="client-form">
+  <h2 class="form-title">NUEVO REGISTRO</h2>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nombre completo</mat-label>
+    <input matInput formControlName="name" required autocomplete="name" />
+    <mat-icon matSuffix>person</mat-icon>
+    <mat-error *ngIf="clientForm.get('name')?.hasError('required')">
+      El nombre es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Correo electrónico</mat-label>
+    <input matInput formControlName="email" required autocomplete="email" />
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="clientForm.get('email')?.hasError('required')">
+      El email es obligatorio.
+    </mat-error>
+    <mat-error *ngIf="clientForm.get('email')?.hasError('email')">
+      Ingresa un correo válido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Teléfono</mat-label>
+    <input matInput formControlName="phone" autocomplete="tel" />
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="submit-btn" type="submit" [disabled]="clientForm.invalid">
+    Registrarse
+  </button>
+</form>
+
