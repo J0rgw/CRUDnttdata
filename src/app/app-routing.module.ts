@@ -7,6 +7,7 @@ import { TablasComponent } from './components/tablas/tablas.component';
 const routes: Routes = [
   { path: '', component: HeroComponent },
   { path: 'form', component: FormComponent },
+  { path: 'form/:id', component: FormComponent },
   { path: 'tablas', component: TablasComponent }
 ];
 

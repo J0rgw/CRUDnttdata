@@ -1,3 +1,8 @@
+<div class="tablas-header">
+  <button mat-raised-button color="primary" class="add-client-btn" (click)="goToAddClient()">
+    + Nuevo Cliente
+  </button>
+</div>
 <div class="table-controls">
   <mat-form-field appearance="fill">
     <mat-label>Buscar</mat-label>
@@ -21,7 +26,7 @@
   </mat-form-field>
 </div>
 
-<table mat-table [dataSource]="filteredClientes" class="mat-elevation-z8 full-width-table">
+<table mat-table [dataSource]="paginatedClientes" class="mat-elevation-z8 full-width-table tablas-table">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Nombre</th>
     <td mat-cell *matCellDef="let c">{{c.name}}</td>
@@ -38,6 +43,27 @@
     <th mat-header-cell *matHeaderCellDef>Fecha de inicio</th>
     <td mat-cell *matCellDef="let c">{{c.startDate | date:'medium'}}</td>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="['name','contactEmail','revenue','startDate']"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['name','contactEmail','revenue','startDate'];"></tr>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let c">
+      <div class="actions-btn-group">
+        <button mat-icon-button color="accent" (click)="editClient(c.id)" title="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteClient(c.id)" title="Eliminar">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['name','contactEmail','revenue','startDate','actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name','contactEmail','revenue','startDate','actions'];"></tr>
 </table>
+
+<div class="pagination-controls" *ngIf="totalPages > 1">
+  <button mat-stroked-button (click)="goToPage(page - 1)" [disabled]="page === 1">Anterior</button>
+  <ng-container *ngFor="let p of [].constructor(totalPages); let i = index">
+    <button mat-flat-button color="primary" (click)="goToPage(i + 1)" [disabled]="page === (i + 1)">{{ i + 1 }}</button>
+  </ng-container>
+  <button mat-stroked-button (click)="goToPage(page + 1)" [disabled]="page === totalPages">Siguiente</button>
+</div>

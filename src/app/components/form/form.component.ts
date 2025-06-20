@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente.model';
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -17,7 +17,8 @@ export class FormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private clienteService: ClienteService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -46,34 +47,25 @@ export class FormComponent implements OnInit {
 
     const cliente: Cliente = this.clientForm.value;
 
-    this.clienteService.createCliente(cliente).subscribe({
-      next: () => {
-        console.log('Cliente creado con éxito');
-        this.clientForm.reset();
-        this.clientForm.markAsPristine();
-        this.clientForm.markAsUntouched();
-      },
-      error: err => {
-        console.error('Error al crear cliente:', err);
-      }
-    });
-  }
-
-  updateClient(): void {
-    if (this.clientForm.invalid || this.clientId == null) return;
-
-    const cliente: Cliente = this.clientForm.value;
-
-    this.clienteService.updateCliente(this.clientId, cliente).subscribe({
-      next: () => {
-        console.log('Cliente actualizado correctamente');
-        this.clientForm.markAsPristine();
-        this.clientForm.markAsUntouched();
-      },
-      error: err => {
-        console.error('Error al actualizar cliente:', err);
-      }
-    });
+    if (this.isEditMode && this.clientId) {
+      this.clienteService.updateCliente(this.clientId, cliente).subscribe({
+        next: () => {
+          this.router.navigate(['/tablas']);
+        },
+        error: err => {
+          console.error('Error al actualizar cliente:', err);
+        }
+      });
+    } else {
+      this.clienteService.createCliente(cliente).subscribe({
+        next: () => {
+          this.router.navigate(['/tablas']);
+        },
+        error: err => {
+          console.error('Error al crear cliente:', err);
+        }
+      });
+    }
   }
 
   deleteClient(): void {

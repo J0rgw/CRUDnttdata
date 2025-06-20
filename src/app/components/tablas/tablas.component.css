@@ -1,0 +1,161 @@
+.tablas-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.add-client-btn {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(63,81,181,0.10);
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.add-client-btn:hover {
+  background: linear-gradient(90deg, #4f46e5 0%, #2563eb 100%);
+  box-shadow: 0 4px 16px rgba(63,81,181,0.18);
+}
+
+.table-controls {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.table-controls mat-form-field {
+  min-width: 220px;
+  flex: 1 1 220px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .table-controls {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .tablas-header {
+    justify-content: center;
+  }
+  .tablas-table .mat-header-cell, .tablas-table .mat-cell {
+    padding: 10px 6px;
+    font-size: 0.98rem;
+  }
+  .table-controls mat-form-field {
+    min-width: 100%;
+  }
+}
+
+.full-width-table {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.09);
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.tablas-table .mat-header-row {
+  background: #f1f5f9;
+  font-weight: bold;
+}
+
+.tablas-table .mat-header-cell, .tablas-table .mat-cell {
+  padding: 16px 20px;
+  font-size: 1.07rem;
+}
+
+.tablas-table .mat-row {
+  transition: background 0.18s;
+}
+
+.tablas-table .mat-row:hover {
+  background: #e0e7ef;
+}
+
+.tablas-table .mat-header-cell {
+  color: #334155;
+  font-size: 1.12rem;
+  border-bottom: 2px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.tablas-table .mat-cell {
+  color: #222;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tablas-table .mat-cell:last-child, .tablas-table .mat-header-cell:last-child {
+  text-align: center;
+}
+
+.tablas-table .actions-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tablas-table .mat-icon-button {
+  margin: 0 2px;
+  border-radius: 50%;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  font-size: 1.2rem;
+  background: #f3f4f6;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1.5px solid #e5e7eb;
+}
+
+.tablas-table .mat-icon-button[color="accent"] {
+  color: #2563eb;
+}
+
+.tablas-table .mat-icon-button[color="warn"] {
+  color: #dc2626;
+}
+
+.tablas-table .mat-icon-button:hover {
+  background: #e0e7ff;
+  transform: scale(1.13);
+  box-shadow: 0 4px 12px rgba(63,81,181,0.13);
+  border-color: #6366f1;
+}
+
+.tablas-table .mat-icon-button[color="warn"]:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 0.5rem 0;
+}
+
+.pagination-controls button {
+  min-width: 38px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+
+.pagination-controls button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pagination-controls button:not([disabled]):hover {
+  background: #e0e7ff;
+  color: #2563eb;
+  box-shadow: 0 2px 8px rgba(63,81,181,0.10);
+}
