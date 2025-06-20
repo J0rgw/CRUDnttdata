@@ -1,5 +1,5 @@
 /*import { Component, OnInit } from '@angular/core';
-//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-client-form',
@@ -7,7 +7,6 @@
   styleUrls: ['./client-form.component.css']
 })
 export class ClientFormComponent implements OnInit {
-
   clientForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -15,17 +14,18 @@ export class ClientFormComponent implements OnInit {
   ngOnInit(): void {
     this.clientForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['']
+      contactEmail: ['', [Validators.required, Validators.email]],
+      revenue: [null, Validators.required],
+      startDate: [null, Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.clientForm.valid) {
-      console.log('Formulario enviado:', this.clientForm.value);
-      // Lógica para enviar los datos a la API
+      console.log('Cliente:', this.clientForm.value);
     } else {
       this.clientForm.markAllAsTouched();
     }
   }
-}*/
+}
+*/
