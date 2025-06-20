@@ -11,28 +11,18 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="full-width">
-<<<<<<< HEAD
     <mat-label>Correo electrónico</mat-label>
     <input matInput formControlName="contactEmail" required autocomplete="email" />
-=======
-    <mat-label>Correo de contacto</mat-label>
-    <input matInput formControlName="contactEmail" required />
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
     <mat-icon matSuffix>email</mat-icon>
     <mat-error *ngIf="clientForm.get('contactEmail')?.hasError('required')">
       El email es obligatorio.
     </mat-error>
     <mat-error *ngIf="clientForm.get('contactEmail')?.hasError('email')">
-<<<<<<< HEAD
       Ingresa un correo válido.
-=======
-      Formato de email inválido.
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="full-width">
-<<<<<<< HEAD
     <mat-label>Ingresos</mat-label>
     <input matInput type="number" formControlName="revenue" required min="1" />
     <mat-icon matSuffix>attach_money</mat-icon>
@@ -41,12 +31,6 @@
     </mat-error>
     <mat-error *ngIf="clientForm.get('revenue')?.hasError('min')">
       El ingreso debe ser mayor a 0.
-=======
-    <mat-label>Ingresos (Revenue)</mat-label>
-    <input matInput type="number" formControlName="revenue" required />
-    <mat-icon matSuffix>attach_money</mat-icon>
-    <mat-error *ngIf="clientForm.get('revenue')?.hasError('required')">
-      Ingresos requeridos.
     </mat-error>
   </mat-form-field>
 
@@ -57,7 +41,6 @@
     <mat-datepicker #picker></mat-datepicker>
     <mat-error *ngIf="clientForm.get('startDate')?.hasError('required')">
       Fecha obligatoria.
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
     </mat-error>
   </mat-form-field>
 

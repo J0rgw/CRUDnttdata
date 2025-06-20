@@ -1,47 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-<<<<<<< HEAD
-import { ClienteService } from '../../services/cliente.service';
-=======
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente.model';
 import { ClienteService } from 'src/app/services/cliente.service';
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-<<<<<<< HEAD
-  styleUrls: ['./form.component.css'],
-=======
   styleUrls: ['./form.component.css']
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
 })
 export class FormComponent implements OnInit {
   clientForm!: FormGroup;
   isEditMode = false;
   clientId?: number;
 
-<<<<<<< HEAD
-  constructor(private fb: FormBuilder, private clienteService: ClienteService) {}
-=======
   constructor(
     private fb: FormBuilder,
     private clienteService: ClienteService,
     private route: ActivatedRoute
   ) {}
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
 
   ngOnInit(): void {
     this.clientForm = this.fb.group({
       name: ['', Validators.required],
       contactEmail: ['', [Validators.required, Validators.email]],
-<<<<<<< HEAD
-      revenue: [null, [Validators.required, Validators.min(1)]]
-=======
       revenue: [null, Validators.required],
       startDate: ['', Validators.required]
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
     });
 
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -55,22 +39,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(): void {
-<<<<<<< HEAD
-    if (this.clientForm.valid) {
-      const formValue = this.clientForm.value;
-      const payload = {
-        ...formValue,
-        startDate: new Date().toISOString()
-      };
-      this.clienteService.createCliente(payload)
-        .subscribe({
-          next: (res) => console.log('Usuario creado:', res),
-          error: (err) => console.error('Error al crear usuario:', err)
-        });
-    } else {
-=======
     if (this.clientForm.invalid) {
->>>>>>> 714f462a06263ede2dc34ecab67e38a472b563bd
       this.clientForm.markAllAsTouched();
       return;
     }
